@@ -51,7 +51,7 @@ class HeroSection extends ConsumerWidget {
                   constraints: BoxConstraints(minHeight: size.height),
                   child: Padding(
                     padding: EdgeInsets.symmetric(
-                      vertical:isMobile ? 10: 12 ,
+                      vertical: isMobile ? 10 : 12,
                       horizontal: isMobile ? 24 : 80,
                     ),
                     child: ConstrainedBox(
@@ -314,10 +314,12 @@ class _AvatarWidgetState extends State<_AvatarWidget>
       vsync: this,
       duration: const Duration(seconds: 3),
     )..repeat(reverse: true);
+
     _float = Tween<double>(
       begin: -10,
       end: 10,
     ).animate(CurvedAnimation(parent: _ctrl, curve: Curves.easeInOut));
+
   }
 
   @override
@@ -336,6 +338,7 @@ class _AvatarWidgetState extends State<_AvatarWidget>
               child: child,
             );
           },
+
           child: Center(
             child: Stack(
               alignment: Alignment.center,

@@ -8,7 +8,6 @@ import '../../../../shared/widget/glass_card.dart';
 import '../../../../shared/widget/glow_button.dart';
 import '../../../../shared/widget/section_header.dart';
 
-
 class AboutSection extends StatefulWidget {
   const AboutSection({super.key});
 
@@ -21,7 +20,8 @@ class _AboutSectionState extends State<AboutSection> {
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = MediaQuery.of(context).size.width < AppSizes.tabletBreakpoint;
+    final isMobile =
+        MediaQuery.of(context).size.width < AppSizes.tabletBreakpoint;
 
     return VisibilityDetector(
       key: const Key('about-section'),
@@ -44,7 +44,7 @@ class _AboutSectionState extends State<AboutSection> {
                   label: 'About Me',
                   title: 'Who I Am',
                   subtitle:
-                  'A passionate developer who turns complex problems into elegant digital solutions.',
+                      'A passionate developer who turns complex problems into elegant digital solutions.',
                 ),
                 const SizedBox(height: 64),
                 isMobile
@@ -68,15 +68,9 @@ class _DesktopAboutLayout extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Expanded(
-          flex: 5,
-          child: _AboutText(visible: visible),
-        ),
+        Expanded(flex: 5, child: _AboutText(visible: visible)),
         const SizedBox(width: 48),
-        Expanded(
-          flex: 4,
-          child: _StatsGrid(visible: visible),
-        ),
+        Expanded(flex: 4, child: _StatsGrid(visible: visible)),
       ],
     );
   }
@@ -119,24 +113,28 @@ class _AboutText extends StatelessWidget {
               children: [
                 Text(
                   "I'm a software developer who specializes in building exceptional "
-                      "digital experiences. Currently focused on building accessible, "
-                      "human-centered products.",
-                  style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18),
+                  "digital experiences. Currently focused on building accessible, "
+                  "human-centered products.",
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge!.copyWith(fontSize: 18),
                 ),
                 const SizedBox(height: 20),
                 Text(
                   "When I'm not coding, I'm designing game worlds, contributing to open-source, "
-                      "or exploring new technologies. I believe in clean code, clean architecture, "
-                      "and making technology work for people.",
+                  "or exploring new technologies. I believe in clean code, clean architecture, "
+                  "and making technology work for people.",
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(height: 32),
                 // Timeline / journey highlights
-                ..._journeyItems.map((item) => _JourneyItem(
-                  year: item.$1,
-                  title: item.$2,
-                  subtitle: item.$3,
-                )),
+                ..._journeyItems.map(
+                  (item) => _JourneyItem(
+                    year: item.$1,
+                    title: item.$2,
+                    subtitle: item.$3,
+                  ),
+                ),
                 const SizedBox(height: 32),
                 GlowButton(
                   label: 'Download CV',
@@ -153,10 +151,26 @@ class _AboutText extends StatelessWidget {
   }
 
   static const List<(String, String, String)> _journeyItems = [
-    ('2020', 'Started Flutter Development', 'Fell in love with cross-platform mobile dev'),
-    ('2021', 'Backend Expansion', 'Mastered Node.js, REST APIs, and JWT security'),
-    ('2022', 'Game Development', 'Dived into Flutter Flame and C++ game engines'),
-    ('2024', 'Full-Stack Mastery', 'Serverpod, Docker, Redis, and cloud deployment'),
+    (
+      '2020',
+      'Started Flutter Development',
+      'Fell in love with cross-platform mobile dev',
+    ),
+    (
+      '2021',
+      'Backend Expansion',
+      'Mastered Node.js, REST APIs, and JWT security',
+    ),
+    (
+      '2022',
+      'Game Development',
+      'Dived into Flutter Flame and C++ game engines',
+    ),
+    (
+      '2024',
+      'Full-Stack Mastery',
+      'Serverpod, Docker, Redis, and cloud deployment',
+    ),
   ];
 }
 
